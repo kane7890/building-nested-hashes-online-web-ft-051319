@@ -1,4 +1,4 @@
-def bonus
+def hero_friends
   epic_tragedy = {
    :montague => {
       :patriarch => {name: "Lord Montague", age: "53"},
@@ -22,9 +22,30 @@ def bonus
 
   #code your solution here:
 
-  epic_tragedy[:montague][:hero][:status] = "dead"
-  epic_tragedy[:capulet][:heroine][:status] = "dead"
+  # epic_tragedy[:montague][:hero][:status] = "dead"
+  # epic_tragedy[:capulet][:heroine][:status] = "dead"
+  # # 
+  #write a method called hero_friends that returns the name of the hero_friends from both families using the epic_tragedy hash
+  
+
+  namearray=[]
+  epic_tragedy.each do |family, familyhash|
+    familyhash.each do |role, charinfo|
+      if role == :hero_friends || role == :heroine_friends
+        charinfo.each do |charhash|
+          namearray << charhash[:name]
+        end
+      end
+    end
+  end
+
+
+# => ["Benvolo", "Steven", "Mercutio", "Nurse"]
 
   #Don't touch the following line! The `bonus` method must return our newly modified epic tragedy hash
-  epic_tragedy
-end
+  # epic_tragedy
+  
+  namearray
+end 
+
+puts hero_friends
